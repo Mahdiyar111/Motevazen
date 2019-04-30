@@ -1,0 +1,95 @@
+delete from tejarat where "—œ?›" is null
+delete from Novin where "—œ?›" is null
+
+--------change radif type to int
+
+update Novin set "—œ?›"="—œ?›"+(select max("—œ?›") from Tejarat)
+
+select * from Tejarat where len(Replace([ «—?Œ «›  «Õ] ,'/',''))<8
+select * from Novin where len(Replace([ «—?Œ «›  «Õ] ,'/',''))<8
+select * from Tejarat where len(Replace([  «—?Œ »” ‰] ,'/',''))<8
+select * from Novin where len(Replace([  «—?Œ »” ‰] ,'/',''))<8
+
+update Tejarat set [  «—?Œ »” ‰]=[ «—?Œ «›  «Õ]
+where len(isnull(Replace([  «—?Œ »” ‰] ,'/',''),'0'))<8 and [òœ]='0'
+update Novin set [  «—?Œ »” ‰]=[ «—?Œ «›  «Õ]
+where len(isnull(Replace([  «—?Œ »” ‰] ,'/',''),'0'))<8 and [òœ]='»” Â'
+
+
+truncate table customer
+insert into [Customer] select [—œ?›],substring([‰«„],1,40),substring([‰«„ Œ«‰Ê«œê?],1,60),substring([‰«„ Åœ—],1,40),
+null,null,substring([òœ „·?],1,11),
+null,null,null,null,null,substring([ ·›‰],1,50),null,null,null,null,substring([Â„—«Â],1,50),0,
+null,null,substring([‰‘«‰?],1,100),null,null,null,null,null,0,0
+from tejarat
+insert into [Customer] select [—œ?›],substring([‰«„],1,40),substring([‰«„ Œ«‰Ê«œê?],1,60),substring([‰«„ Åœ—],1,40),
+null,null,substring([òœ „·?],1,11),
+null,null,null,null,null,substring([ ·›‰],1,50),null,null,null,null,substring([Â„—«Â],1,50),0,
+null,null,substring([‰‘«‰?],1,100),null,null,null,null,null,0,0
+from Novin
+
+update customer set fname=replace(fname,'?','Ì'),lname=replace(lname,'?','Ì'),fathername=replace(fathername,'?','Ì'),address=replace(address,'?','Ì')
+
+update Tejarat set [Õ”«» „‘ —ò]=[—œ?›] where [Õ”«» „‘ —ò] is null
+update Novin set [Õ”«» „‘ —ò]=[—œ?›] where [Õ”«» „‘ —ò] is null
+
+select [Õ”«» „‘ —ò]  from (select [Õ”«» „‘ —ò] ,count([Õ”«» „‘ —ò] ) a from novin
+group by [Õ”«» „‘ —ò] 
+having count([Õ”«» „‘ —ò] )>1) tmp
+
+Truncate Table Hesab
+Insert Into Hesab
+select  '1/1/'+[Õ”«» „‘ —ò],1,1,cast([Õ”«» „‘ —ò] as numeric),[—œ?›],[‘⁄»Â],cast(Replace(replace([ „ﬁœ«— „‘«—ò ],',',''),'-','0') as numeric),cast(Replace(Replace(Replace([œ—’œ ”Â„ «·‘—òÂ „ƒ””Â],'%',''),'Â„Â','0'),'‰œ«—œ','0') as float),cast(replace(replace(replace([ ò«—„“œ],',',''),'‰œ«—œ','0'),'-','0') as numeric),cast(replace([ «—?Œ «›  «Õ],'/','') as int),cast(replace([  «—?Œ »” ‰],'/','') as int),0,null,0
+from tejarat
+Insert Into Hesab
+select  '1/2/'+replace(Replace([Õ”«» „‘ —ò],'-',''),'*',''),1,2,cast(replace(Replace([Õ”«» „‘ —ò],'-',''),'*','') as numeric),[—œ?›],[‘⁄»Â],cast(Replace(replace([ „ﬁœ«— „‘«—ò ],',',''),'-','0') as numeric),cast(Replace(Replace(Replace([œ—’œ ”Â„ «·‘—òÂ „ƒ””Â],'%',''),'Â„Â','0'),'‰œ«—œ','0') as float),cast(replace(replace(replace([ ò«—„“œ],',',''),'‰œ«—œ','0'),'-','0') as numeric),cast(replace([ «—?Œ «›  «Õ],'/','') as int),cast(replace([  «—?Œ »” ‰],'/','') as int),0,null,0
+from Novin
+
+update hesab set des=replace(des,'?','Ì')
+
+select  '1/1/'+[Õ”«» „‘ —ò] HesabNo,1 Kol,1 Moin,cast([Õ”«» „‘ —ò] as numeric) Hesab,[—œ?›] Radif,[‘⁄»Â] Des,cast(Replace(replace([ „ﬁœ«— „‘«—ò ],',',''),'-','0') as numeric) SanadQty,-1 SanadType,cast(Replace(Replace(Replace([œ—’œ ”Â„ «·‘—òÂ „ƒ””Â],'%',''),'Â„Â','0'),'‰œ«—œ','0') as float) CoPercen,cast(replace(replace(replace([ ò«—„“œ],',',''),'‰œ«—œ','0'),'-','0') as numeric) Profit
+,cast(replace([ «—?Œ «›  «Õ],'/','') as int) RegDate
+--,cast(replace([  «—?Œ »” ‰],'/','') as int) RegDate
+Into Sa
+from tejarat
+
+Insert Into Sa
+select  '1/1/'+[Õ”«» „‘ —ò] HesabNo,1 Kol,1 Moin,cast([Õ”«» „‘ —ò] as numeric) Hesab,[—œ?›] Radif,[‘⁄»Â] Des,cast(Replace(replace([ „ﬁœ«— „‘«—ò ],',',''),'-','0') as numeric) SanadQty,1 SanadType,cast(Replace(Replace(Replace([œ—’œ ”Â„ «·‘—òÂ „ƒ””Â],'%',''),'Â„Â','0'),'‰œ«—œ','0') as float) CoPercen,cast(replace(replace(replace([ ò«—„“œ],',',''),'‰œ«—œ','0'),'-','0') as numeric) Profit
+--,cast(replace([ «—?Œ «›  «Õ],'/','') as int) RegDate
+,cast(replace([  «—?Œ »” ‰],'/','') as int) RegDate 
+from tejarat
+where [òœ]='0'
+
+Insert Into Sa
+select  '1/2/'+replace(Replace([Õ”«» „‘ —ò],'-',''),'*','') HesabNo,1 Kol,2 Moin,cast(replace(Replace([Õ”«» „‘ —ò],'-',''),'*','') as numeric) Hesab,[—œ?›] Radif,[‘⁄»Â] Des,cast(Replace(replace([ „ﬁœ«— „‘«—ò ],',',''),'-','0') as numeric) SanadQty,-1 SanadType,cast(Replace(Replace(Replace([œ—’œ ”Â„ «·‘—òÂ „ƒ””Â],'%',''),'Â„Â','0'),'‰œ«—œ','0') as float) CoPercen,cast(replace(replace(replace([ ò«—„“œ],',',''),'‰œ«—œ','0'),'-','0') as numeric) Profit
+,cast(replace([ «—?Œ «›  «Õ],'/','') as int) RegDate
+--,cast(replace([  «—?Œ »” ‰],'/','') as int) RegDate 
+from Novin
+--where [òœ]='0'
+
+Insert Into Sa
+select  '1/2/'+replace(Replace([Õ”«» „‘ —ò],'-',''),'*','') HesabNo,1 Kol,2 Moin,cast(replace(Replace([Õ”«» „‘ —ò],'-',''),'*','') as numeric) Hesab,[—œ?›] Radif,[‘⁄»Â] Des,cast(Replace(replace([ „ﬁœ«— „‘«—ò ],',',''),'-','0') as numeric) SanadQty,1 SanadType,cast(Replace(Replace(Replace([œ—’œ ”Â„ «·‘—òÂ „ƒ””Â],'%',''),'Â„Â','0'),'‰œ«—œ','0') as float) CoPercen,cast(replace(replace(replace([ ò«—„“œ],',',''),'‰œ«—œ','0'),'-','0') as numeric) Profit
+--,cast(replace([ «—?Œ «›  «Õ],'/','') as int) RegDate
+,cast(replace([  «—?Œ »” ‰],'/','') as int) RegDate 
+from Novin
+where [òœ]='»” Â'
+
+
+select sum(sanadqty*sanadtype) from sa
+select (select sum(cast(Replace(replace([ „ﬁœ«— „‘«—ò ],',',''),'-','0') as numeric)) from tejarat where [òœ]=1) +
+(select sum(cast(Replace(replace([ „ﬁœ«— „‘«—ò ],',',''),'-','0') as numeric)) from novin where [òœ]='»” Â')
+
+select sum(sanadqty*sanadtype) from sa
+select (select sum(cast(Replace(replace([ „ﬁœ«— „‘«—ò ],',',''),'-','0') as numeric)) from tejarat where len(isnull(Replace([  «—?Œ »” ‰] ,'/',''),'0'))<8  )+
+(select sum(cast(Replace(replace([ „ﬁœ«— „‘«—ò ],',',''),'-','0') as numeric)) from novin where len(isnull(Replace([  «—?Œ »” ‰] ,'/',''),'0'))<8 )
+
+
+drop Table Trn
+select * into Trn From sa
+
+Add Id And Key(Id,Hesab_No,Reg_Date) To Trn
+
+truncate table trnhead
+insert into trnhead select distinct regdate from trn
+
+
