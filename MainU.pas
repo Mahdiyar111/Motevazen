@@ -36,7 +36,7 @@ type
     Action46: TAction;
     Action51: TAction;
     Action61: TAction;
-    Action62: TAction;
+    TrnRepAction: TAction;
     Action63: TAction;
     Action64: TAction;
     Action65: TAction;
@@ -165,7 +165,7 @@ type
     procedure Action15Execute(Sender: TObject);
     procedure Action16Execute(Sender: TObject);
     procedure Action61Execute(Sender: TObject);
-    procedure Action62Execute(Sender: TObject);
+    procedure TrnRepActionExecute(Sender: TObject);
     procedure Action63Execute(Sender: TObject);
     procedure Action64Execute(Sender: TObject);
     procedure Action65Execute(Sender: TObject);
@@ -247,7 +247,7 @@ implementation
 
 {$R *.dfm}
 
-uses PassU, MastDataU, CustomeU, SanIDU, CodesU, RegTrnU;
+uses PassU, MastDataU, CustomeU, SanIDU, CodesU, RegTrnU, TrnRepU;
 
 function tFMMain.Encrypt (const s: string; Key: Word) : string;
 var
@@ -1069,16 +1069,16 @@ begin
 // end;
 end;
 
-procedure TfmMain.Action62Execute(Sender: TObject);
+procedure TfmMain.TrnRepActionExecute(Sender: TObject);
 begin
-// Application.CreateForm(TfmTransAct,fmTransAct) ;
-// try
-//  fmTransAct.MNShDate1.Text:=Copy(dmMastData.StrDate,1,4)+'/01/01';
-//  fmTransAct.MNShDate2.Text:=dmMastData.StrDate;
-//  fmTransAct.ShowModal;
-// finally
-//  fmTransAct.Free;
-// end;
+ Application.CreateForm(TfmTrnRep,fmTrnRep) ;
+ try
+  fmTrnRep.MNTEDit1.Text:=Copy(dmMastData.StrDate,1,4)+'/01/01';
+  fmTrnRep.MNTEDit2.Text:=dmMastData.StrDate;
+  fmTrnRep.ShowModal;
+ finally
+  fmTrnRep.Free;
+ end;
 end;
 
 procedure TfmMain.Action63Execute(Sender: TObject);

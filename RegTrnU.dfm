@@ -14,17 +14,17 @@ object fmRegTrn: TfmRegTrn
   OldCreateOrder = False
   ParentBiDiMode = False
   Position = poScreenCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object GroupBox1: TGroupBox
     Left = 0
     Top = 0
     Width = 863
-    Height = 105
+    Height = 81
     Align = alTop
     Caption = #1578#1575#1585#1740#1582' '#1587#1606#1583
     TabOrder = 0
-    ExplicitWidth = 1072
     object MNTEdit1: TMNTEdit
       Left = 720
       Top = 32
@@ -32,7 +32,7 @@ object fmRegTrn: TfmRegTrn
       Height = 21
       MaxLength = 10
       TabOrder = 0
-      Text = '1398/02/09'
+      Text = '1398/02/11'
       OnExit = MNTEdit1Exit
       EditKind = ShDate
       NotEmpty = False
@@ -48,8 +48,8 @@ object fmRegTrn: TfmRegTrn
       BalloonType = blnInfo
     end
     object DBNavigator1: TDBNavigator
-      Left = 296
-      Top = 77
+      Left = 24
+      Top = 29
       Width = 224
       Height = 25
       DataSource = dsTrnHead
@@ -74,56 +74,14 @@ object fmRegTrn: TfmRegTrn
   end
   object GroupBox2: TGroupBox
     Left = 0
-    Top = 105
+    Top = 81
     Width = 863
-    Height = 105
+    Height = 152
     Align = alTop
     Caption = #1608#1585#1608#1583' '#1575#1591#1604#1575#1593#1575#1578
     TabOrder = 1
-    ExplicitLeft = 224
-    ExplicitTop = 192
-    ExplicitWidth = 185
-    object Label30: TLabel
-      Left = 543
-      Top = 13
-      Width = 13
-      Height = 13
-      Caption = #1705#1604
-      Font.Charset = ARABIC_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label29: TLabel
-      Left = 485
-      Top = 13
-      Width = 24
-      Height = 13
-      Caption = #1605#1593#1610#1606
-      Font.Charset = ARABIC_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label1: TLabel
-      Left = 431
-      Top = 13
-      Width = 31
-      Height = 13
-      Caption = #1581#1587#1575#1576
-      Font.Charset = ARABIC_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-    end
     object sLabelFX1: TsLabelFX
-      Left = 302
+      Left = 587
       Top = 29
       Width = 28
       Height = 21
@@ -142,7 +100,7 @@ object fmRegTrn: TfmRegTrn
       Shadow.OffsetKeeper.RightBottom = 5
     end
     object MNNumEdit12: TMNTEdit
-      Left = 515
+      Left = 800
       Top = 32
       Width = 41
       Height = 21
@@ -152,6 +110,7 @@ object fmRegTrn: TfmRegTrn
       OnExit = MNNumEdit12Exit
       EditKind = NumEdit
       NotEmpty = True
+      LabelEdit = #1705#1604
       BlnTitle = 'MN Software && Mahdiyar Softwares'
       BlnDuration = 0
       BlnHorizontal = blnLeft
@@ -163,7 +122,7 @@ object fmRegTrn: TfmRegTrn
       BalloonType = blnInfo
     end
     object MNNumEdit13: TMNTEdit
-      Left = 468
+      Left = 753
       Top = 32
       Width = 41
       Height = 21
@@ -173,6 +132,7 @@ object fmRegTrn: TfmRegTrn
       OnExit = MNNumEdit13Exit
       EditKind = NumEdit
       NotEmpty = True
+      LabelEdit = #1605#1593#1740#1606
       BlnTitle = 'MN Software && Mahdiyar Softwares'
       BlnDuration = 0
       BlnHorizontal = blnLeft
@@ -184,7 +144,7 @@ object fmRegTrn: TfmRegTrn
       BalloonType = blnInfo
     end
     object MNNumEdit14: TMNTEdit
-      Left = 341
+      Left = 626
       Top = 32
       Width = 121
       Height = 21
@@ -194,6 +154,7 @@ object fmRegTrn: TfmRegTrn
       OnExit = MNNumEdit14Exit
       EditKind = NumEdit
       NotEmpty = True
+      LabelEdit = #1581#1587#1575#1576
       BlnTitle = 'MN Software && Mahdiyar Softwares'
       BlnDuration = 0
       BlnHorizontal = blnLeft
@@ -204,22 +165,159 @@ object fmRegTrn: TfmRegTrn
       BlnPixelCoordinateY = 0
       BalloonType = blnInfo
     end
+    object MNTEdit2: TMNTEdit
+      Left = 720
+      Top = 59
+      Width = 121
+      Height = 21
+      TabOrder = 3
+      OnExit = MNTEdit2Exit
+      EditKind = Money
+      NotEmpty = True
+      LabelEdit = #1605#1576#1604#1594' '#1605#1588#1575#1585#1705#1578
+      BlnTitle = 'MN Software && Mahdiyar Softwares'
+      BlnDuration = 0
+      BlnHorizontal = blnLeft
+      BlnVertical = blnTop
+      BlnPosition = blnArrowTopLeft
+      BlnControl = MNTEdit2
+      BlnPixelCoordinateX = 0
+      BlnPixelCoordinateY = 0
+      BalloonType = blnInfo
+    end
+    object MNTEdit3: TMNTEdit
+      Left = 648
+      Top = 59
+      Width = 66
+      Height = 21
+      TabOrder = 4
+      OnExit = MNTEdit3Exit
+      EditKind = RealEdit
+      NotEmpty = True
+      LabelEdit = #1606#1585#1582' '#1587#1607#1605' '#1605#1575
+      BlnTitle = 'MN Software && Mahdiyar Softwares'
+      BlnDuration = 0
+      BlnHorizontal = blnLeft
+      BlnVertical = blnTop
+      BlnPosition = blnArrowTopLeft
+      BlnControl = MNTEdit3
+      BlnPixelCoordinateX = 0
+      BlnPixelCoordinateY = 0
+      BalloonType = blnInfo
+    end
+    object MNTEdit4: TMNTEdit
+      Left = 521
+      Top = 59
+      Width = 121
+      Height = 21
+      OEMConvert = True
+      TabOrder = 5
+      OnExit = MNTEdit4Exit
+      EditKind = Money
+      NotEmpty = True
+      LabelEdit = #1587#1608#1583
+      BlnTitle = 'MN Software && Mahdiyar Softwares'
+      BlnDuration = 0
+      BlnHorizontal = blnLeft
+      BlnVertical = blnTop
+      BlnPosition = blnArrowTopLeft
+      BlnControl = MNTEdit4
+      BlnPixelCoordinateX = 0
+      BlnPixelCoordinateY = 0
+      BalloonType = blnInfo
+    end
+    object MNTEdit5: TMNTEdit
+      Left = 138
+      Top = 59
+      Width = 377
+      Height = 21
+      TabOrder = 6
+      OnExit = MNTEdit5Exit
+      EditKind = Edit
+      NotEmpty = True
+      LabelEdit = #1578#1608#1590#1740#1581#1575#1578
+      BlnTitle = 'MN Software && Mahdiyar Softwares'
+      BlnDuration = 0
+      BlnHorizontal = blnLeft
+      BlnVertical = blnTop
+      BlnPosition = blnArrowTopLeft
+      BlnControl = MNTEdit5
+      BlnPixelCoordinateX = 0
+      BlnPixelCoordinateY = 0
+      BalloonType = blnInfo
+    end
+    object sBitBtn1: TsBitBtn
+      Left = 567
+      Top = 112
+      Width = 75
+      Height = 25
+      Action = NewAction
+      Caption = #1580#1583#1740#1583
+      TabOrder = 8
+      ImageIndex = 6
+      Images = dmMastData.sCharImageList1
+    end
+    object sBitBtn2: TsBitBtn
+      Left = 486
+      Top = 112
+      Width = 75
+      Height = 25
+      Action = CancelAction
+      Caption = #1575#1606#1589#1585#1575#1601
+      TabOrder = 9
+      ImageIndex = 4
+      Images = dmMastData.sCharImageList1
+    end
+    object sBitBtn3: TsBitBtn
+      Left = 405
+      Top = 112
+      Width = 75
+      Height = 25
+      Action = DeleteAction
+      Caption = #1581#1584#1601
+      TabOrder = 10
+      ImageIndex = 5
+      Images = dmMastData.sCharImageList1
+    end
+    object sBitBtn4: TsBitBtn
+      Left = 324
+      Top = 113
+      Width = 75
+      Height = 25
+      Action = SaveAction
+      Caption = #1584#1582#1740#1585#1607
+      TabOrder = 11
+      ImageIndex = 3
+      Images = dmMastData.sCharImageList1
+    end
+    object RadioGroup1: TRadioGroup
+      Left = 30
+      Top = 48
+      Width = 102
+      Height = 39
+      Caption = #1705#1587#1585' '#1740#1575' '#1575#1590#1575#1601#1607
+      Columns = 2
+      ItemIndex = 1
+      Items.Strings = (
+        #1705#1587#1585
+        #1575#1590#1575#1601#1607)
+      TabOrder = 7
+      OnExit = RadioGroup1Exit
+    end
   end
   object GroupBox3: TGroupBox
     Left = 0
-    Top = 210
+    Top = 233
     Width = 863
-    Height = 314
+    Height = 291
     Align = alClient
     Caption = #1606#1605#1575#1740#1588
     TabOrder = 2
-    ExplicitTop = 113
-    ExplicitHeight = 105
     object DBGridEh1: TDBGridEh
       Left = 2
       Top = 15
       Width = 859
-      Height = 297
+      Height = 274
       Align = alClient
       DataSource = dsTrn
       DynProps = <>
@@ -313,14 +411,8 @@ object fmRegTrn: TfmRegTrn
     Connection = dmMastData.FDConnection1
     SQL.Strings = (
       'select * from trn where regdate=1')
-    Left = 136
-    Top = 128
-    object FDQuTrnId: TFDAutoIncField
-      FieldName = 'Id'
-      Origin = 'Id'
-      ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
-    end
+    Left = 168
+    Top = 96
     object FDQuTrnHesabNo: TStringField
       FieldName = 'HesabNo'
       Origin = 'HesabNo'
@@ -383,6 +475,12 @@ object fmRegTrn: TfmRegTrn
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
+    object FDQuTrnId: TFDAutoIncField
+      FieldName = 'Id'
+      Origin = 'Id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
   end
   object dsTrnHead: TDataSource
     DataSet = FDTaTrnHead
@@ -391,7 +489,33 @@ object fmRegTrn: TfmRegTrn
   end
   object dsTrn: TDataSource
     DataSet = FDQuTrn
-    Left = 184
-    Top = 128
+    Left = 232
+    Top = 96
+  end
+  object ActionManager1: TActionManager
+    Images = dmMastData.sCharImageList1
+    Left = 376
+    Top = 297
+    StyleName = 'Platform Default'
+    object NewAction: TAction
+      Caption = #1580#1583#1740#1583
+      ImageIndex = 6
+      OnExecute = NewActionExecute
+    end
+    object CancelAction: TAction
+      Caption = #1575#1606#1589#1585#1575#1601
+      ImageIndex = 4
+      ShortCut = 27
+      OnExecute = CancelActionExecute
+    end
+    object DeleteAction: TAction
+      Caption = #1581#1584#1601
+      ImageIndex = 5
+    end
+    object SaveAction: TAction
+      Caption = #1584#1582#1740#1585#1607
+      ImageIndex = 3
+      OnExecute = SaveActionExecute
+    end
   end
 end

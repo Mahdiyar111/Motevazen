@@ -237,9 +237,9 @@ object fmMain: TfmMain
       Caption = 'Action61'
       OnExecute = Action61Execute
     end
-    object Action62: TAction
+    object TrnRepAction: TAction
       Caption = #1589#1608#1585#1578#1581#1587#1575#1576
-      OnExecute = Action62Execute
+      OnExecute = TrnRepActionExecute
     end
     object Action63: TAction
       Caption = 'Action63'
@@ -563,7 +563,7 @@ object fmMain: TfmMain
         Caption = #1578#1585#1575#1586' '#1705#1604
       end
       object N30: TMenuItem
-        Caption = #1589#1608#1585#1578#1581#1587#1575#1576
+        Action = TrnRepAction
       end
       object N31: TMenuItem
         Caption = #1605#1575#1606#1583#1607' '#1581#1587#1575#1576#1607#1575

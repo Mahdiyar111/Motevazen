@@ -38907,6 +38907,18 @@ object dmMastData: TdmMastData
       item
         Char = 61528
         Color = -14121702
+      end
+      item
+        Char = 61527
+        Color = -16777036
+      end
+      item
+        Char = 61526
+        Color = -16777054
+      end
+      item
+        Char = 61525
+        Color = -14121702
       end>
     Left = 104
     Top = 136

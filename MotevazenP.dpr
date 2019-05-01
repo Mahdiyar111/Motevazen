@@ -11,7 +11,8 @@ uses
   CodeSeaU in 'CodeSeaU.pas' {fmCodeSearch},
   SanIDU in 'SanIDU.pas',
   CodesU in 'CodesU.pas' {fmCodes},
-  RegTrnU in 'RegTrnU.pas' {fmRegTrn};
+  RegTrnU in 'RegTrnU.pas' {fmRegTrn},
+  TrnRepU in 'TrnRepU.pas' {fmTrnRep};
 
 {$R *.res}
 
