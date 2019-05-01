@@ -38935,7 +38935,6 @@ object dmMastData: TdmMastData
       'Database=Motevazen'
       'Workstation=Auto'
       'DriverID=MSSQL')
-    Connected = True
     LoginPrompt = False
     Left = 24
     Top = 152
