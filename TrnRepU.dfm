@@ -115,7 +115,7 @@ object fmTrnRep: TfmTrnRep
       Height = 21
       MaxLength = 10
       TabOrder = 3
-      Text = '1398/02/11'
+      Text = '1398/02/12'
       EditKind = ShDate
       NotEmpty = False
       LabelEdit = #1575#1586' '#1578#1575#1585#1740#1582
@@ -136,7 +136,7 @@ object fmTrnRep: TfmTrnRep
       Height = 21
       MaxLength = 10
       TabOrder = 4
-      Text = '1398/02/11'
+      Text = '1398/02/12'
       OnExit = MNTEdit2Exit
       EditKind = ShDate
       NotEmpty = False
@@ -154,20 +154,19 @@ object fmTrnRep: TfmTrnRep
   end
   object GroupBox3: TGroupBox
     Left = 0
-    Top = 65
+    Top = 99
     Width = 878
-    Height = 380
+    Height = 346
     Align = alClient
     Caption = #1606#1605#1575#1740#1588
     TabOrder = 1
-    ExplicitTop = 154
-    ExplicitWidth = 863
-    ExplicitHeight = 291
+    ExplicitTop = 65
+    ExplicitHeight = 380
     object DBGridEh1: TDBGridEh
       Left = 2
       Top = 15
       Width = 874
-      Height = 363
+      Height = 329
       Align = alClient
       DataSource = dsTrn
       DynProps = <>
@@ -241,6 +240,27 @@ object fmTrnRep: TfmTrnRep
       object RowDetailData: TRowDetailPanelControlEh
       end
     end
+  end
+  object ActionToolBar1: TActionToolBar
+    Left = 0
+    Top = 65
+    Width = 878
+    Height = 34
+    ActionManager = ActionManager1
+    Caption = 'ActionToolBar1'
+    Color = clMenuBar
+    ColorMap.DisabledFontColor = 7171437
+    ColorMap.HighlightColor = clWhite
+    ColorMap.BtnSelectedFont = clBlack
+    ColorMap.UnusedColor = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Orientation = boRightToLeft
+    ParentFont = False
+    Spacing = 0
   end
   object dsTrn: TDataSource
     DataSet = FDQuTrn
@@ -320,6 +340,27 @@ object fmTrnRep: TfmTrnRep
       Origin = 'Id'
       ProviderFlags = [pfInWhere, pfInKey]
       ReadOnly = True
+    end
+  end
+  object ActionManager1: TActionManager
+    ActionBars = <
+      item
+        Items = <
+          item
+            Action = ExcelAction
+            Caption = #1575#1705#1587#1604'(&Z)'
+            ImageIndex = 7
+          end>
+        ActionBar = ActionToolBar1
+      end>
+    Images = dmMastData.sCharImageList1
+    Left = 216
+    Top = 193
+    StyleName = 'Platform Default'
+    object ExcelAction: TAction
+      Caption = #1575#1705#1587#1604
+      ImageIndex = 7
+      OnExecute = ExcelActionExecute
     end
   end
 end

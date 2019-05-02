@@ -61,6 +61,7 @@ type
     frxPDFExport1: TfrxPDFExport;
     sCharImageList1: TsCharImageList;
     FDConnection1: TFDConnection;
+    sSaveDialog1: TsSaveDialog;
     procedure ADOConnection1AfterConnect(Sender: TObject);
   private
     { Private declarations }

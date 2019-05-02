@@ -38919,6 +38919,14 @@ object dmMastData: TdmMastData
       item
         Char = 61525
         Color = -14121702
+      end
+      item
+        Char = 61891
+        Color = -14121702
+      end
+      item
+        Char = 61889
+        Color = -16777036
       end>
     Left = 104
     Top = 136
@@ -38938,5 +38946,9 @@ object dmMastData: TdmMastData
     LoginPrompt = False
     Left = 24
     Top = 152
+  end
+  object sSaveDialog1: TsSaveDialog
+    Left = 384
+    Top = 224
   end
 end

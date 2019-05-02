@@ -1,4 +1,4 @@
-unit TrnRepU;
+Ôªøunit TrnRepU;
 
 interface
 
@@ -9,7 +9,9 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh;
+  FireDAC.Comp.Client, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh, Vcl.ToolWin,
+  Vcl.ActnMan, Vcl.ActnCtrls, System.Actions, Vcl.ActnList,
+  Vcl.PlatformDefaultStyleActnCtrls, DBGridEhImpExp, ShellAPI;
 
 type
   TfmTrnRep = class(TCSEZForm)
@@ -36,10 +38,14 @@ type
     FDQuTrnProfit: TFMTBCDField;
     FDQuTrnRegDate: TIntegerField;
     FDQuTrnId: TFDAutoIncField;
+    ActionManager1: TActionManager;
+    ExcelAction: TAction;
+    ActionToolBar1: TActionToolBar;
     procedure MNNumEdit12Exit(Sender: TObject);
     procedure MNNumEdit13Exit(Sender: TObject);
     procedure MNNumEdit14Exit(Sender: TObject);
     procedure MNTEdit2Exit(Sender: TObject);
+    procedure ExcelActionExecute(Sender: TObject);
   private
     { Private declarations }
     ESCaped:integer;
@@ -56,12 +62,28 @@ implementation
 
 uses MastDataU, CodeSeaU;
 
+procedure TfmTrnRep.ExcelActionExecute(Sender: TObject);
+begin
+  dmMastData.sSaveDialog1.Filter := 'Xlsx file|*.xlsx';
+  dmMastData.sSaveDialog1.DefaultExt := 'xlsx';
+
+  if dmMastData.sSaveDialog1.Execute then
+    begin
+      SaveDBGridEhToExportFile(TDBGridEhExportAsXlsx, DBGridEh1, dmMastData.sSaveDialog1.FileName,True);
+
+      if sMessageDlg('ŸÅÿß€åŸÑ ŸÖŸàÿ±ÿØ ŸÜÿ∏ÿ± ÿ∞ÿÆ€åÿ±Ÿá ÿ¥ÿØ.'#13'ÿ¢€åÿß ŸÖ€åÿÆŸàÿßŸá€åÿØ ÿ®ÿßÿ≤ÿ¥ ⁄©ŸÜ€åÿØ "' + dmMastData.sSaveDialog1.FileName + '" ?',
+        mtConfirmation, [mbYes, mbNo], 0) = mrYes
+      then
+        ShellExecute(Handle, nil, PChar(dmMastData.sSaveDialog1.FileName), nil, nil, SW_SHOWNORMAL);
+    end;
+end;
+
 procedure TfmTrnRep.MNNumEdit12Exit(Sender: TObject);
 begin
  if MNNumEdit12.Text<'0' then MNNumEdit12.Text:='0';
  if Escaped=0 then begin
   if dmMastData.KolFind(MNNumEdit12.Text)='False' then begin
-   if sMessageDlg('Œÿ« Ê ”Ê«·','òœ ò· „Ê—œ ‰Ÿ— ÅÌœ« ‰‘œ. ¬Ì« „Ì ŒÊ«ÂÌœ Ã” ÃÊ ò‰Ìœø',mtConfirmation,[mbYes,mbNo],0)=mrYes then begin
+   if sMessageDlg('ÿÆÿ∑ÿß Ÿà ÿ≥ŸàÿßŸÑ','⁄©ÿØ ⁄©ŸÑ ŸÖŸàÿ±ÿØ ŸÜÿ∏ÿ± ŸæŸäÿØÿß ŸÜÿ¥ÿØ. ÿ¢Ÿäÿß ŸÖŸä ÿÆŸàÿßŸáŸäÿØ ÿ¨ÿ≥ÿ™ÿ¨Ÿà ⁄©ŸÜŸäÿØÿü',mtConfirmation,[mbYes,mbNo],0)=mrYes then begin
     Application.CreateForm(TfmCodeSearch,fmCodeSearch) ;
     try
      fmCodeSearch.ShowModal;
@@ -82,7 +104,7 @@ begin
  if MNNumEdit13.Text<'0' then MNNumEdit13.Text:='0';
  if (Escaped=0) and (UP_ARROC=False) then begin
   if dmMastData.MoinFind(MNNumEdit12.Text,MNNumEdit13.Text)='False' then begin
-   if MessageDlg('òœ „⁄Ì‰ „Ê—œ ‰Ÿ— ÅÌœ« ‰‘œ. ¬Ì« „Ì ŒÊ«ÂÌœ Ã” ÃÊ ò‰Ìœø',mterror,[mbYes,mbNo],0)=mrYes then begin
+   if MessageDlg('⁄©ÿØ ŸÖÿπŸäŸÜ ŸÖŸàÿ±ÿØ ŸÜÿ∏ÿ± ŸæŸäÿØÿß ŸÜÿ¥ÿØ. ÿ¢Ÿäÿß ŸÖŸä ÿÆŸàÿßŸáŸäÿØ ÿ¨ÿ≥ÿ™ÿ¨Ÿà ⁄©ŸÜŸäÿØÿü',mterror,[mbYes,mbNo],0)=mrYes then begin
     Application.CreateForm(TfmCodeSearch,fmCodeSearch) ;
     try
      fmCodeSearch.Kol:=StrToInt(MNNumEdit12.Text);
@@ -108,7 +130,7 @@ begin
  if (Escaped=0) and (UP_ARROC=False) then begin
   sLabelFX1.Caption:=dmMastData.HesabFind(Hesab_No);
   if dmMastData.Query1.RecordCount<1 then  begin  //Hesab not found
-   if MessageDlg('‘„«—Â Õ”«» Ê«—œÂ ÅÌœ« ‰‘œ ¬Ì« «ÌÃ«œ ‘Êœø ',mtConfirmation,[mbYes,mbNo],0)=mrYes then begin
+   if MessageDlg('ÿ¥ŸÖÿßÿ±Ÿá ÿ≠ÿ≥ÿßÿ® Ÿàÿßÿ±ÿØŸá ŸæŸäÿØÿß ŸÜÿ¥ÿØ ÿ¢Ÿäÿß ÿßŸäÿ¨ÿßÿØ ÿ¥ŸàÿØÿü ',mtConfirmation,[mbYes,mbNo],0)=mrYes then begin
      Application.CreateForm(TfmCodeSearch,fmCodeSearch) ;
      try
       fmCodeSearch.Kol:=StrToInt(MNNumEdit12.Text);
