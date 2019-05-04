@@ -38766,7 +38766,7 @@ object dmMastData: TdmMastData
     DataSet = taMaster
     BCDToCurrency = False
     Left = 64
-    Top = 72
+    Top = 80
   end
   object ADOConnection2: TADOConnection
     ConnectionString = 
@@ -38885,6 +38885,8 @@ object dmMastData: TdmMastData
     CenterWindow = False
     PrintScaling = False
     PdfA = False
+    PDFStandard = psNone
+    PDFVersion = pv17
     Left = 248
     Top = 120
   end
@@ -38927,6 +38929,12 @@ object dmMastData: TdmMastData
       item
         Char = 61889
         Color = -16777036
+      end
+      item
+        Char = 61500
+      end
+      item
+        Char = 61487
       end>
     Left = 104
     Top = 136
