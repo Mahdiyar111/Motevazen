@@ -93,6 +93,19 @@ object fmMain: TfmMain
     ImageIndex = 4
     Reflected = True
   end
+  object sSpeedButton6: TsSpeedButton
+    Left = 364
+    Top = 76
+    Width = 110
+    Height = 110
+    Action = TrnRepAction
+    Layout = blGlyphTop
+    Spacing = -5
+    SkinData.SkinSection = 'SPEEDBUTTON'
+    Images = dmMastData.sCharImageList1
+    ImageIndex = 10
+    Reflected = True
+  end
   object sStatusBar1: TsStatusBar
     Left = 0
     Top = 420
@@ -238,7 +251,8 @@ object fmMain: TfmMain
       OnExecute = Action61Execute
     end
     object TrnRepAction: TAction
-      Caption = #1589#1608#1585#1578#1581#1587#1575#1576
+      Caption = #1711#1586#1575#1585#1588
+      ImageIndex = 10
       OnExecute = TrnRepActionExecute
     end
     object Action63: TAction
@@ -411,7 +425,7 @@ object fmMain: TfmMain
   object MainMenu1: TMainMenu
     Images = dmMastData.sCharImageList1
     Left = 392
-    Top = 176
+    Top = 256
     object N5: TMenuItem
       Caption = #1662#1585#1608#1606#1583#1607
       object N6: TMenuItem

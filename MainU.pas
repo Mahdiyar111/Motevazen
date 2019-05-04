@@ -140,6 +140,7 @@ type
     Action211: TMenuItem;
     NewKol: TAction;
     N1: TMenuItem;
+    sSpeedButton6: TsSpeedButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure ServerSocket1ClientRead(Sender: TObject;
